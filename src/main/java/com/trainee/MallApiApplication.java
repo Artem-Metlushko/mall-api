@@ -11,29 +11,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class MallApiApplication {
+    public static void main(final String[] args) {
+        SpringApplication.run(MallApiApplication.class, args);
 
-    private Long categoryId;
-    private String name;
-    private String description;
-    private Integer productCount;
-    private String image;
-    private Double rating;
-
-    public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(MallApiApplication.class, args);
-        /*ProductService productService = context.getBean(ProductService.class);
-        CategoryRepository categoryRepository = context.getBean(CategoryRepository.class);
-        ProductRepository productRepository = context.getBean(ProductRepository.class);
-        Category category = new Category(111L, "qwewqe", "category1", 12, "image1", 5.5);
-
-        Category save = categoryRepository.save(category);
-        Category category1 = categoryRepository.findById(save.getCategoryId()).orElse(category);
-//        categoryRepository.delete(category1);
-
-
-      *//*  Product product = new Product(1L, "product1", 100.0, "description1", true, category1);
-
-        productRepository.save(product);*/
     }
 
 }

@@ -1,70 +1,61 @@
-# Проект mall-api
+# Project mall-api
 
-Это REST API приложение на основе фреймворка Spring Boot, которое 
-предоставляет функциональность  для создания масштабируемого и гибкого приложения. 
-Для работы с базой данных выбраны модули Spring Data JPA и Hibernate. 
-Lombok для упрощения разработки и Rest Assured для написания интеграционных 
-тестов API.liquibase-core для управления версионированием и 
-миграцией базы данных.
+This is a REST API application based on the Spring Boot framework that provides functionality for creating a scalable and flexible application. The chosen modules for working with the database are Spring Data JPA and Hibernate. Lombok is used to simplify development, and Rest Assured is used for writing API integration tests. Liquibase-core is used for managing database versioning and migration.
 
-## Предметная область: Интернет-магазин электроники.
+## Domain: Electronics Online Store.
 
-### Композиция:  
+### Composition: 
 
-Объект "Category":
+Object "Category":
 
-Свойство "categoryId" - уникальный идентификатор категории.  
-Свойство "name" - название категории.  
-Свойство "description" - описание категории.  
-Свойство "productCount" - количество продуктов в данной категории.  
-Свойство "image" - изображение, связанное с категорией.  
-Свойство "rating" - рейтинг категории.  
+Property "categoryId" - unique identifier of the category.
+Property "name" - category name.
+Property "description" - category description.
+Property "productCount" - number of products in this category.
+Property "image" - image associated with the category.
+Property "rating" - category rating.
 
-Объект "Product":
+Object "Product":
 
-Свойство "productId" - уникальный идентификатор продукта.  
-Свойство "name" - название продукта.  
-Свойство "price" - цена продукта.  
-Свойство "description" - описание продукта.  
-Свойство "category" - категория, к которой относится продукт (связь "многие к одному" с объектом "Категория").  
+Property "productId" - unique identifier of the product.
+Property "name" - product name.
+Property "price" - product price.
+Property "description" - product description.
+Property "category" - the category to which the product belongs (many-to-one relationship with the "Category" object).
 
-Такая композиция позволяет организовать структуру интернет-магазина, где каждый продукт принадлежит определенной категории. 
-У каждой категории может быть множество продуктов, а каждый продукт привязан только к одной категории.  
+This composition allows organizing the structure of an online store, where each product belongs to a specific category. Each category can have multiple products, and each product is linked to only one category.
 
-Например, можно иметь категорию "Смартфоны" с различными моделями продуктов внутри нее, такими как "iPhone 12", "Samsung Galaxy S21", "Google Pixel 5" и т.д.
-Каждый продукт будет иметь свои уникальные свойства, такие как цена, описание и принадлежность к категории "Смартфоны".
+For example, you can have a category "Smartphones" with various product models within it, such as "iPhone 12", "Samsung Galaxy S21", "Google Pixel 5", and so on. Each product will have its own unique properties, such as price, description, and belonging to the "Smartphones" category.
 
 
-## Зависимости
+## Dependencies
 
-1. spring-boot-starter-data-jpa: Зависимость для подключения модуля Spring Data JPA, который предоставляет удобные средства для работы с базой данных с использованием парадигмы ORM (Object-Relational Mapping).
-2. spring-boot-starter-web: Зависимость для разработки веб-приложений с использованием Spring Web MVC, который предоставляет функциональность для создания RESTful API и веб-страниц с использованием шаблонов.
-3. mysql-connector-j: Зависимость для подключения MySQL JDBC Driver, который обеспечивает взаимодействие с базой данных MySQL. 
-4. lombok: Зависимость для интеграции с проектом Lombok, который упрощает разработку Java-кода путем автоматической генерации геттеров, сеттеров, конструкторов и других стандартных методов. 
-5. spring-boot-starter-test: Зависимость для подключения модуля Spring Boot Test, который предоставляет инструменты для написания и запуска автоматических тестов в Spring Boot приложениях. 
-6. springdoc-openapi-starter-webmvc-ui: Зависимость для подключения модуля Springdoc OpenAPI, который генерирует документацию API на основе аннотаций в коде и предоставляет интерактивный интерфейс Swagger UI для просмотра и тестирования API. 
-7. hibernate-validator: Зависимость для интеграции с Hibernate Validator, который предоставляет механизмы валидации данных с использованием аннотаций. 
-8. liquibase-core: Зависимость для интеграции с Liquibase, который предоставляет средства для управления версионированием и миграцией базы данных. 
-9. rest-assured: Зависимость для интеграции с Rest Assured, который предоставляет удобные средства для написания автоматических тестов API с использованием Fluent API. 
-10. jaxb-api: Зависимость для использования API JAXB (Java Architecture for XML Binding), который предоставляет механизмы преобразования данных между XML и Java объектами.
+1. spring-boot-starter-data-jpa: Dependency for connecting the Spring Data JPA module, which provides convenient tools for working with the database using the ORM (Object-Relational Mapping) paradigm.
+2. spring-boot-starter-web: Dependency for developing web applications using Spring Web MVC, which provides functionality for creating RESTful APIs and web pages using templates.
+3. mysql-connector-j: Dependency for connecting the MySQL JDBC Driver, which enables interaction with the MySQL database.
+4. lombok: Dependency for integrating with Lombok, which simplifies Java code development by automatically generating getters, setters, constructors, and other standard methods. 
+5. spring-boot-starter-test: Dependency for connecting the Spring Boot Test module, which provides tools for writing and running automated tests in Spring Boot applications. 
+6. springdoc-openapi-starter-webmvc-ui: Dependency for connecting the Springdoc OpenAPI module, which generates API documentation based on annotations in the code and provides an interactive Swagger UI interface for viewing and testing the API. 
+7. hibernate-validator: Dependency for integrating with Hibernate Validator, which provides data validation mechanisms using annotations.
+8. liquibase-core: Dependency for integrating with Liquibase, which provides tools for managing database versioning and migration. 
+9. rest-assured: Dependency for integrating with Rest Assured, which provides convenient tools for writing automated API tests using a Fluent API. 
+10. jaxb-api: Dependency for using the JAXB (Java Architecture for XML Binding) API, which provides mechanisms for transforming data between XML and Java objects.
 
 
-## Сборка и запуск
+## Build and Run
 
-1. Склонируйте репозиторий на вашу локальную машину и откройте проект в терминале.
-2. Убедитесь, что Docker установлен и запущен на вашей локальной машине.
-3. Запустите базу данных, выполнив команду: docker-compose up.
-4. Соберите проект, выполните следующую команду в терминале: ./mvnw package.
-5. Запустите приложение с помощью команды: ./mvnw spring-boot:run
+1. Clone the repository to your local machine and open the project in the terminal.
+2. Make sure Docker is installed and running on your local machine.
+3. Start the database by running the command: docker-compose up.
+4. Build the project by executing the following command in the terminal: ./mvnw package.
+5. Run the application using the command: ./mvnw spring-boot:run
 
 ## Swagger
-После запуска приложения, вы можете получить доступ к документации API Swagger по адресу 
-http://localhost:8080/swagger-ui/index.html. Здесь вы найдете подробную информацию о 
-доступных эндпоинтах, запросах и ответах.
+After starting the application, you can access the Swagger API documentation at http://localhost:8080/swagger-ui/index.html. Here you will find detailed information about available endpoints, requests, and responses.
 
-## Примеры запросов для обьета "Category"
+## Sample Requests for the "Category" Object
 
-1. Создание новой категории:
+1. Create a new category:
 ``` 
 curl -X 'POST' \
   'http://localhost:8080/categories' \
@@ -80,21 +71,21 @@ curl -X 'POST' \
 }'
 ```
 
-2. Получение информации о категории по её идентификатору:
+2. Get category information by its identifier:
 ``` 
 curl -X 'GET' \
   'http://localhost:8080/categories/1' \
   -H 'accept: */*'
 ```
 
-3. Получение всех категорий:
+3. Get all categories:
 ``` 
 curl -X 'GET' \
   'http://localhost:8080/categories' \
   -H 'accept: */*'
 ```
 
-4. Обновление информации о категории:
+4. Update category information:
 ``` 
 curl -X 'PUT' \
   'http://localhost:8080/categories/1' \
@@ -110,7 +101,7 @@ curl -X 'PUT' \
 }'
 ```
 
-5. Удаление категории:
+5. Delete a category:
 ``` 
 curl -X 'DELETE' \
   'http://localhost:8080/categories' \
@@ -126,9 +117,9 @@ curl -X 'DELETE' \
 }' 
 ```
 
-## Примеры запросов для обьета "Product"
+## Sample Requests for the "Product" Object
 
-1. Создание нового продукта:
+1. Create a new product:
 ``` 
 curl -X 'POST' \
   'http://localhost:8080/products' \
@@ -150,21 +141,21 @@ curl -X 'POST' \
 }'
 ```
 
-2. Получение информации о продукте по её идентификатору:
+2. Get product information by its identifier:
 ``` 
 curl -X 'GET' \
   'http://localhost:8080/products/1' \
   -H 'accept: */*'
 ```
 
-3. Получение всех продуктов:
+3. Get all products:
 ``` 
 curl -X 'GET' \
   'http://localhost:8080/products' \
   -H 'accept: */*'
 ```
 
-4. Обновление информации о продукте:
+4. Update product information:
 ``` 
 curl -X 'PUT' \
   'http://localhost:8080/products/1' \
@@ -186,7 +177,7 @@ curl -X 'PUT' \
 }'
 ```
 
-5. Удаление продукта:
+5. Delete a product:
 ``` 
 curl -X 'DELETE' \
   'http://localhost:8080/products' \
